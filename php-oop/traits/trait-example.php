@@ -21,6 +21,15 @@ trait PrintLog
     abstract public function __construct(bool $debug);
 }
 
+trait SayBye
+{
+    public function sayGoodBye() {
+        echo 'Good ';
+        parent::sayGoodBye();
+        echo PHP_EOL;
+    }
+}
+
 class BaseClass
 {
     use Log, PrintLog;
@@ -51,24 +60,43 @@ class BaseClass
     {
         echo "Hi $who from " . get_called_class() . "!\n";
     }
+
+    public function sayGoodBye() {
+        echo 'Bye!';
+    }
 }
 
 class MyBaseClass extends BaseClass
-{}
+{
+    use SayBye;
+}
 
 class MyFirstClass extends MyBaseClass
-{}
+{
+    use SayBye;
+
+    public function sayGoodBye() {
+        parent::sayGoodBye();
+        echo 'Best Regards';
+    }
+}
 
 $baseClass = new BaseClass(1);
 $baseClass->save();
 $baseClass->sayHello('First');
+$baseClass->sayGoodBye();
+
 echo PHP_EOL;
 
 $myBaseClass = new MyBaseClass(1);
 $myBaseClass->save();
 $myBaseClass->sayHello('Second');
+$myBaseClass->sayGoodBye();
+
 echo PHP_EOL;
 
 (new MyFirstClass(true))->save();
 (new MyFirstClass(false))->sayHello('Mr. Anderson');
+(new MyFirstClass(false))->sayGoodBye();
+
 echo PHP_EOL;
