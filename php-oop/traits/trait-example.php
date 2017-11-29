@@ -17,14 +17,11 @@ trait PrintLog
     {
         return strftime("%R");
     }
+
+    abstract public function __construct(bool $debug);
 }
 
-interface WithConstruct
-{
-    public function __construct(bool $debug);
-}
-
-class BaseClass implements WithConstruct
+class BaseClass
 {
     use Log, PrintLog;
 
