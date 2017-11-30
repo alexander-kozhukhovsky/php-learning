@@ -14,8 +14,21 @@ class BasicIterator extends IteratorIterator // is php spl class
     }
 }
 
+class FilterRows extends FilterIterator
+{
+    public function accept()
+    {
+        $current = $this->getInnerIterator()->current();
+        if (count($current) == 1) {
+            return false;
+        }
+        return true;
+    }
+}
+
 $filePath = './data.csv';
 $iterator = new BasicIterator($filePath);
+$iterator = new FilterRows($iterator);
 
 foreach ($iterator as $i => $row) {
     var_dump($row);
