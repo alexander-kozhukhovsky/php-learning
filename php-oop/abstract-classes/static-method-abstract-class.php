@@ -7,5 +7,6 @@ abstract class Foo
     }
 }
 
+$foo = new Foo; // Fatal error:  Uncaught Error: Cannot instantiate abstract class Foo
 Foo::bar();
 // works!
