@@ -15,6 +15,8 @@ Other words, generators is a routine that is designed to control the iteration b
 
 When a **generator function** is called, it returns an object that can be iterated over. When you iterate over that object (for instance, via a foreach loop), PHP will call the generator function each time it needs a value, then saves the state of the generator when the generator yields a value so that it can be resumed when the next value is required.
 
+Except that instead of *returning once*, a *generator can yield as many times as it needs* to in order to provide the values to be iterated over.
+
 ### Yield keyword
 
 The heart of a generator function is the **yield** keyword. In its simplest form, a yield statement looks much like a return, except rather than stopping the execution of the loop, *only pauses it for some operation to occur*.
