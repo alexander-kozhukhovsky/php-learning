@@ -32,3 +32,9 @@ Performed the same way you yield a return from a function, *prepending an ampers
 ### Yielding null values
 
 Yield can be called without an argument to yield a **NULL value** with an automatic key.
+
+### Comparing generators with [Iterator](http://php.net/manual/en/language.oop5.iterations.php) objects
+
+The primary advantage of generators is their *simplicity*. Much less boilerplate code has to be written compared to implementing an Iterator class, and the code is generally much more readable.
+
+This flexibility does come at a cost, however: *generators are forward-only iterators*, and **cannot be rewound once iteration has started**. This also means that the same generator can't be iterated over multiple times: **the generator will need to be rebuilt by calling the generator function again**.
