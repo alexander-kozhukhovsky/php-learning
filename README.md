@@ -13,18 +13,21 @@ A simpler way to think about the concept is a closure is a *callable class* simi
 
 ### Class synopsis
 
-/* Methods */
 *private* [__construct](http://php.net/manual/en/closure.construct.php) ( void )
+
 *public static* Closure [bind](http://php.net/manual/en/closure.bind.php) ( Closure $closure , object $newthis [, mixed $newscope = "static" ] )
+
 *public* Closure [bindTo](http://php.net/manual/en/closure.bindto.php) ( object $newthis [, mixed $newscope = "static" ] )
+
 *public mixed* [call](http://php.net/manual/en/closure.call.php) ( object $newthis [, mixed $... ] )
+
 *public static* Closure [fromCallable](http://php.net/manual/en/closure.fromcallable.php) ( callable $callable )
 
 >Кроме методов, описанных здесь, этот класс также имеет метод **__invoke**. Данный метод необходим только для совместимости с другими классами, в которых реализован магический вызов, так как этот метод не используется при вызове функции.
 
 ### Closure Scope
 
-When we talk about scope, we mean *the part of our code that a variable is valid and defined for*.
+When we talk about scope, we mean **the part of our code that a variable is valid and defined for**.
 
 ```php
 $var = "closure";
