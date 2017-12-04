@@ -7,10 +7,13 @@ class InvalidCCNumberException extends InvalidArgumentException
     }
 }
 try {
-    processCC();
+    //processCC(); - No CC number - InvalidCCNumberException - Finally!
+    processCC(22, '231513'); // Well processed with $numb = 22 and $zipCode = 231513 - Finally!
 } catch (InvalidCCNumberException $e) {
     echo $e->getMessage() . " - ";
     echo get_class($e) . PHP_EOL;
+} finally {
+    echo "Finally!\n";
 }
 
 function processCC(int $numb = null, int $zipCode = null)
