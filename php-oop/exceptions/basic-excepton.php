@@ -26,7 +26,7 @@ function checkNum($number)
 // trigger exception in a "try" block
 try {
     checkNum(1);
-    echo "If you see this, the number is the number is 1 or below\n";
+    echo "If you see this, the number is 1 or below\n";
 } catch (Exception $e) {
     echo 'Custom Message: ' . $e->getMessage() . PHP_EOL;
 }
