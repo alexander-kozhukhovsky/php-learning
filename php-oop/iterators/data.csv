@@ -1,0 +1,4 @@
+id,name,note,extra
+1,First,This is the first row.,NULL
+2,Second,Another entry.,Extra data
+3,Third Encounters,something,true
